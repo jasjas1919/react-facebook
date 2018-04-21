@@ -60,7 +60,7 @@ export class MainApp extends React.Component<{}, {}> {
                 <div className='div'> 
                     <div className='hideShowBtn'><button onClick={ this.toggleHideShowFriends }>{ this.hideShowFriends ? "Hide" : "Show" }</button></div> 
                     <div>{'I have '}{friendsStore.friends.length}{' friends.'}</div> 
-                    {'and my friends are:' }
+                    {'My friends are:' }
                     {this.hideShowFriends &&
                         friendsStore.friends.map((p: Person, index: number) => {
                         return <PersonPrint key={"person" + index} person={p} isUpdatable={false} isDeleteable={true} onDelete={() => {this.onDeleteFriend(index);}} /> })
