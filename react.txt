@@ -1,0 +1,12 @@
+KISS
+keep it simple & stupid
+
+
+home work
+1) read about firebase - 
+	a. authentication 
+	b. hosting
+	c. database
+2) try to add email + password authentication to our project via firebase
+3) add tabs support in main app, one of the tabs will be login the other will be profile-and-friends
+4) if you have time - devide profile-and-friends component into 1. profile 2. friends
