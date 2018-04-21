@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { MainApp } from './components/main/main';
+import { MainApp } from './components/main-app/main-app';
 
 class IndexView extends React.Component<{}, {}> {
     render(){

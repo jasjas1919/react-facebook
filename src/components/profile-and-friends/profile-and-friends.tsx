@@ -1,14 +1,14 @@
-import React = require("react");
+import * as React from "react";
 import { Person } from "../../models/person";
 import friendsStore from "../../stores/friends-store";
 import { PersonPrint } from "../person/person";
 import { observer } from "mobx-react";
-import './main.css';
 import { observable, action } from "mobx";
 import { AddEditUser } from "../edit-profile/add-edit-user";
+import './profile-and-friends.css';
 
 @observer
-export class MainApp extends React.Component<{}, {}> {
+export class ProfileAndFriends extends React.Component<{}, {}> {
     @observable isEditingUser: boolean;
     @observable hideShowFriends:boolean;
     @observable deletePressed:boolean;
