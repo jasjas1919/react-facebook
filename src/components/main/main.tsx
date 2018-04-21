@@ -49,7 +49,7 @@ export class MainApp extends React.Component<{}, {}> {
         return (
             <div>
                 <div className='div'>
-                    {"Hello, My Profile:"}
+                    {"My Profile:"}
                     <PersonPrint person={friendsStore.user} isUpdatable={true} isDeleteable={false} 
                                     onUpdate={this.onUpdateUser}/>
                     <button onClick={this.buttonClicked}>change my name</button>
