@@ -2,42 +2,55 @@ import * as React from "react";
 import { Message } from '../../models/message';
 import { observer } from "mobx-react";
 import { observable, action } from "mobx";
+import { Person } from "../../models/person";
+import friendsStore from "../../stores/friends-store";
 
-
-export interface messageProps {
-    openMessage:boolean;
-    message?: Message;
+export interface MessageProps {
+  user?: Person;
 }
 
 @observer
-export class Messages extends React.Component<messageProps, {}> {
-    @observable openMessage:boolean;
+export class Messages extends React.Component<MessageProps, {}> {
+  @observable inputText: string;
+  componentWillMount() {
+    this.init();
+  }
+  @action
+  init() {
+    this.inputText = "";
+  }
 
-    componentWillMount() {
-        this.init();
-    }
-
-    @action 
-    init(){
-        this.openMessage = false;
-    }
-    
-    @action 
-    openFriendMessage = (openMessage: boolean): void => {
-        this.openMessage = openMessage;
-    }
-        render() {
-        return (
-
-            <div className='div'>
-                    <div className="message">
-                    <p className="name"> {this.props.message.text}. </p>
-                    <p className="name"> {this.props.message.title}. </p>
-                        <input></input><button>Send</button>
-                    </div>
-            </div>
-        );
-    }
-    
-
+  @action
+  openFriendMessage = (openMessage: boolean): void => {
+  }
+  render() {
+    return (
+      <div className='div'>
+        <div className='friends-list'>
+          {'friends list:'}
+          {friendsStore.friends.map((friend: Person) => {
+            <div onClick={() => this.friendClicked(friend)}> {friend.name} </div>
+          })
+          }
+        </div>
+        <div className="converstion">
+          <p className="name"> messages: </p>
+          { this.props.user && 
+            this.props.user.conversation.messages.map((message: Message) => {
+              <div> {message.text} </div>
+            })
+          }
+          <input value={this.inputText} onChange={this.input}></input><button onClick={this.sendMessage}>Send</button>
+        </div>
+      </div>
+    );
+  }
+  @action
+  sendMessage = (): void => {
+    this.props.user.sendMessage(new Message(this.inputText, friendsStore.user));
+  }
+  @action
+  friendClicked = (friend: Person): void => {
+    this.props.user = friend;
+  }
 }

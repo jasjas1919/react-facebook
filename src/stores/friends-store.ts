@@ -4,13 +4,12 @@ import { observable, action } from "mobx";
 class FreindsStore {
   @observable friends: Person[];
   @observable user: Person;
-  @observable newUser: Person;
 
   constructor(){
     this.friends = observable([]);
-    this.setUser(new Person("Jasmin", 26, "Green"));
-    this.addFriend(new Person('Maria', 28, "Green"));
-    this.addFriend(new Person('Moshe', 25, "Black"));
+    this.setUser(new Person("Jasmin", 26));
+    this.addFriend(new Person('Maria', 28));
+    this.addFriend(new Person('Moshe', 25));
   }
   
   @action
@@ -30,5 +29,4 @@ class FreindsStore {
 }
 
 const friendsStore: FreindsStore = new FreindsStore();
-
 export default friendsStore;

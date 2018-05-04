@@ -34,7 +34,7 @@ export class MainApp extends React.Component<MainAppProps, {}> {
           <FriendsProfile />
         }
         {appStore.appState == AppState.MESSAGES &&
-          <Messages openMessage={true} />
+          <Messages />
         }
       </div>
     );

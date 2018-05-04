@@ -1,32 +1,32 @@
 import { observable, action } from "mobx";
+import { Conversation } from "./conversation";
+import { Message } from "./message";
 
 export class Person {
   @observable name:string;
   @observable age:number;
-  @observable eyeColor:string;
-
-  constructor(name: string, age: number, eyeColor: string) {
-    this.name = name;
-    this.age = age;
-    this.eyeColor = eyeColor;
+  @observable conversation: Conversation;
+  constructor(name: string, age: number) {
+    this.setName(name);
+    this.setAge(age);
+    this.setConversation(new Conversation());
   }
-
   copy(): Person {
-    return new Person(this.name, this.age, this.eyeColor);
+    return new Person(this.name, this.age);
   } 
-
   @action
   setName(name: string): void {
     this.name = name;
   }
-
   @action
   setAge(age: number): void {
     this.age = age;
   }
-
   @action
-  setEye(eyeColor: string): void {
-    this.eyeColor = eyeColor;
+  setConversation(con: Conversation): void {
+    this.conversation = con;
+  }
+  sendMessage(message: Message): void {
+    this.conversation.addMessage(message);
   }
 }
