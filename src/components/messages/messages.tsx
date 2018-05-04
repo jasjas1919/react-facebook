@@ -40,7 +40,7 @@ export class Messages extends React.Component<MessageProps, {}> {
               <div> {message.text} </div>
             })
           }
-          <input value={this.inputText} onChange={this.input}></input><button onClick={this.sendMessage}>Send</button>
+          <input value={this.inputText} ></input><button onClick={this.sendMessage}>Send</button>
         </div>
       </div>
     );
