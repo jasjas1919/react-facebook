@@ -1,0 +1,22 @@
+.div{    
+  border: 1px solid #cfcfcf;
+  width: 50%;
+  padding: 20px 10px;
+  margin: 10px 0;
+  background: #c0fff7;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: cursive;
+}
+.error{
+  background: red;
+  color: #fff;
+  display: block;
+  width: fit-content;
+  padding: 2px 5px;
+}
+
+.hideShowBtn{
+  float: right;
+
+}

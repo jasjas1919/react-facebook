@@ -6,6 +6,7 @@ class IndexView extends React.Component<{}, {}> {
     render(){
         return (
             <MainApp />
+            
         )
     }
 };
